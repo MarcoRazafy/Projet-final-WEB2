@@ -8,11 +8,12 @@ import App from './App.jsx'
 import './styles/theme.css'
 import './styles/globals.css'
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* Router pour gérer les liens sans recharger la page */}
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
-)
+);
+
+
