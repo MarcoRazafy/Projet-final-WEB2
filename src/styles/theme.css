@@ -1,0 +1,15 @@
+:root{
+    /* Palette fournie */
+    --blue-deep-1: #030619;      /* Bleu foncé */
+    --blue-deep-2: #131c2e;      /* Bleu foncé (cartes/nav) */
+    --blue:        #285bde;      /* Accent (survol/boutons) */
+    --blue-gray:   #4f5868;      /* Texte secondaire/bordures */
+    --blue-pastel: #b2bbc9;      /* Muted/disabled */
+  
+    /* Dérivés utiles */
+    --text: #e8eefc;
+    --text-dim: #b7c0d3;
+    --card: rgba(19,28,46,0.6);
+    --border: rgba(178,187,201,0.15);
+  }
+  
