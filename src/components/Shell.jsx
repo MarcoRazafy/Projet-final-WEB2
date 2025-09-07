@@ -5,15 +5,14 @@
  */
 import Navbar from './Navbar'
 
-export default function Shell({ children }){
+export default function Shell({ children }) {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="page-blank">
-        {/* La page doit rester VISUELLEMENT vide. 
-            On garde {children} si tu veux injecter du contenu plus tard. */}
+      <main className="flex-1 p-6 bg-gray-100">
         {children}
       </main>
-    </>
+    </div>
   )
 }
+
