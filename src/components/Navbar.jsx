@@ -12,7 +12,7 @@ export default function Navbar(){
     <header className="navbar">
       <div className="container" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:16, height:64}}>
         <div className="brand">
-          <span className="brand-icon flex justify-center items-center"><i class="fa-solid fa-wallet"></i></span>
+        <i class="fa-solid fa-wallet"></i>
           <span>Gestionnaire de Dépenses</span>
         </div>
 
