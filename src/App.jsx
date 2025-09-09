@@ -2,11 +2,11 @@ import { Routes, Route } from 'react-router-dom'
 import Shell from './components/Shell'
 
 // Pages
-import Dashboard from './pages/Dashboard'
-import Categories from './pages/Categories'
-import Reports from './pages/Reports'
-import Profile from './pages/Profile'
-import Expenses from './pages/Expenses'
+import Dashboard from './components/pages/Dashboard'
+import Categories from './components/pages/Categories'
+import Reports from './components/pages/Reports'
+import Profile from './components/pages/Profile'
+import Expenses from './components/pages/Expenses'
 
 /**
  * Déclare les routes de l'application.
@@ -29,3 +29,4 @@ export default function App(){
     </Shell>
   )
 }
+
