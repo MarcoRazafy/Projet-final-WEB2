@@ -1,32 +1,46 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Shell from './components/Shell'
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/Auth";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Shell from "./components/Shell";
 
-// Pages
-import Dashboard from './pages/Dashboard'
-import Categories from './pages/Categories'
-import Reports from './pages/Reports'
-import Profile from './pages/Profile'
-import Expenses from './pages/Expenses'
+// Pages protégées
+import Dashboard from "./pages/Dashboard";
+import Categories from "./pages/Categories";
+import Reports from "./pages/Reports";
+import Profile from "./pages/Profile";
+import Expenses from "./pages/Expenses";
 
-/**
- * Déclare les routes de l'application.
- * Chaque route affiche le Shell (layout + fond) et une page vide.
- * On n'affiche aucun texte pour respecter le brief "fond en arrière-plan vide".
- */
+// Pages publiques
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 export default function App(){
   return (
-    <Shell>
+    <AuthProvider>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/reports" element={<Reports />} />
-        <Route path="/profile" element={<Profile />} />
-        {/* Page non liée au menu */}
-        <Route path="/expenses" element={<Expenses />} />
-        {/* 404 optionnelle : rediriger vers Dashboard ou afficher vide */}
-        <Route path="*" element={<Dashboard />} />
+        {}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {}
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute>
+              <Shell>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/categories" element={<Categories />} />
+                  <Route path="/reports" element={<Reports />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/expenses" element={<Expenses />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+              </Shell>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
-    </Shell>
-  )
+    </AuthProvider>
+  );
 }
