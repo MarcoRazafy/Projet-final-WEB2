@@ -1,12 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-/**
- * Navbar en haut de page.
- * - Liens: Dashboard, Catégories, Rapports, Profil
- * - "Dépenses" N'EST PAS affiché ici.
- * - NavLink ajoute la classe "active" quand la route correspond,
- *   ce qui nous permet de styliser l'onglet actif.
- */
+
 export default function Navbar(){
   return (
     <header className="navbar">
@@ -29,7 +23,6 @@ export default function Navbar(){
           <NavLink to="/profile" className={({isActive}) => 'nav-link' + (isActive ? ' active' : '')}>
             Profil
           </NavLink>
-          {/* PAS de lien "Dépenses" ici */}
         </nav>
       </div>
     </header>

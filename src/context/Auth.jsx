@@ -43,7 +43,7 @@ export function AuthProvider({ children }) {
       age: Number(payload.age) || "",
       sex: payload.sex || "",
       password: String(payload.password),
-      avatarDataUrl: payload.avatarDataUrl || "", // <- nouvelle clé pour la photo
+      avatarDataUrl: payload.avatarDataUrl || "", 
     };
 
     const next = [...users, newUser];

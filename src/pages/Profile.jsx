@@ -16,7 +16,7 @@ export default function Profile() {
     firstName: user?.firstName || "",
     lastName:  user?.lastName  || "",
     phone:     user?.phone     || "",
-    email:     user?.email     || "", // optionnel
+    email:     user?.email     || "", 
     age:       user?.age       || "",
     sex:       user?.sex       || "Homme",
     avatarDataUrl: user?.avatarDataUrl || "",
