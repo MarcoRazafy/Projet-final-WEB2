@@ -9,7 +9,7 @@ export default function Shell({ children }){
   return (
     <>
       <Navbar />
-      <main className="page-blank">
+      <main>
         {/* La page doit rester VISUELLEMENT vide. 
             On garde {children} si tu veux injecter du contenu plus tard. */}
         {children}
