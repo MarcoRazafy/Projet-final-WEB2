@@ -8,7 +8,6 @@ import Dashboard from "./pages/Dashboard";
 import Categories from "./pages/Categories";
 import Reports from "./pages/Reports";
 import Profile from "./pages/Profile";
-import Expenses from "./pages/Expenses";
 
 // Pages publiques
 import Login from "./pages/Login";
@@ -32,8 +31,7 @@ export default function App(){
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/categories" element={<Categories />} />
                   <Route path="/reports" element={<Reports />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/expenses" element={<Expenses />} />
+                  <Route path="/profile" element={<Profile />} />          
                   <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
               </Shell>

@@ -20,7 +20,7 @@ export default function Categories(){
   const [cats, setCats] = React.useState([]);
   const [open, setOpen] = React.useState(false);
   const [editing, setEditing] = React.useState(null);
-  const [form, setForm] = React.useState({ name: "", color: "#285bde", emoji: "🧩" });
+  const [form, setForm] = React.useState({ name: "", color: "#285bde"});
   const [error, setError] = React.useState("");
 
   // charger
@@ -51,14 +51,14 @@ export default function Categories(){
 
   const onAdd = () => {
     setEditing(null);
-    setForm({ name: "", color: "#285bde", emoji: "🧩" });
+    setForm({ name: "", color: "#285bde"});
     setError("");
     setOpen(true);
   };
 
   const onEdit = (cat) => {
     setEditing(cat.id);
-    setForm({ name: cat.name, color: cat.color, emoji: cat.emoji || "🧩" });
+    setForm({ name: cat.name, color: cat.color});
     setError("");
     setOpen(true);
   };
@@ -73,7 +73,7 @@ export default function Categories(){
     if (!form.name.trim()) { setError("Nom requis."); return; }
 
     if (editing) {
-      const next = cats.map(c => c.id === editing ? { ...c, name: form.name.trim(), color: form.color, emoji: form.emoji } : c);
+      const next = cats.map(c => c.id === editing ? { ...c, name: form.name.trim(), color: form.color,} : c);
       persist(next);
     } else {
       const newCat = {
@@ -81,7 +81,6 @@ export default function Categories(){
         owner: user.user,
         name: form.name.trim(),
         color: form.color,
-        emoji: form.emoji,
         createdAt: Date.now()
       };
       persist([newCat, ...cats]);
