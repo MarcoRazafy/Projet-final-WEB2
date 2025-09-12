@@ -3,7 +3,6 @@ import React from "react";
 const AuthContext = React.createContext(null);
 export const useAuth = () => React.useContext(AuthContext);
 
-// helpers
 const norm = (v) => String(v ?? "").trim().toLowerCase();
 
 export function AuthProvider({ children }) {
@@ -16,7 +15,6 @@ export function AuthProvider({ children }) {
     return raw ? JSON.parse(raw) : null;
   });
 
-  // REGISTER (username obligatoire, email optionnel)
   const register = (payload) => {
     const username = norm(payload.user);
     if (!username) throw new Error("Nom d'utilisateur requis.");
@@ -39,7 +37,7 @@ export function AuthProvider({ children }) {
       firstName: payload.firstName?.trim() || "",
       lastName: payload.lastName?.trim() || "",
       phone: payload.phone?.trim() || "",
-      email: payload.email?.trim() || "", // optionnel
+      email: payload.email?.trim() || "",
       age: Number(payload.age) || "",
       sex: payload.sex || "",
       password: String(payload.password),
@@ -52,7 +50,6 @@ export function AuthProvider({ children }) {
     return true;
   };
 
-  // LOGIN (username + password)
   const login = (userInput, password) => {
     const username = norm(userInput);
     if (!username) throw new Error("Nom d'utilisateur requis.");
@@ -72,7 +69,6 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("auth_current");
   };
 
-  // UPDATE PROFILE (firstName, lastName, phone, email (facultatif), age, sex, avatarDataUrl)
   const updateProfile = (patch) => {
     if (!user) throw new Error("Non authentifié.");
     const idx = users.findIndex((u) => norm(u.user) === norm(user.user));
@@ -80,7 +76,6 @@ export function AuthProvider({ children }) {
 
     const email = (patch.email ?? "").trim();
     if (email && norm(email) !== norm(users[idx].email)) {
-      // si un nouvel email est fourni, contrôle d'unicité
       const existsEmail = users.some((u, i) => i !== idx && norm(u.email) === norm(email));
       if (existsEmail) throw new Error("Email déjà utilisé par un autre compte.");
     }
@@ -90,7 +85,7 @@ export function AuthProvider({ children }) {
       firstName: patch.firstName?.trim() ?? users[idx].firstName,
       lastName:  patch.lastName?.trim()  ?? users[idx].lastName,
       phone:     patch.phone?.trim()     ?? users[idx].phone,
-      email:     email || "", // email optionnel
+      email:     email || "",
       age:       patch.age ?? users[idx].age,
       sex:       patch.sex ?? users[idx].sex,
       avatarDataUrl: patch.avatarDataUrl ?? users[idx].avatarDataUrl,
@@ -106,7 +101,6 @@ export function AuthProvider({ children }) {
     return true;
   };
 
-  // UPDATE PASSWORD (vérifie ancien mdp)
   const updatePassword = (currentPassword, newPassword) => {
     if (!user) throw new Error("Non authentifié.");
     if (String(currentPassword) !== String(user.password)) throw new Error("Mot de passe actuel incorrect.");

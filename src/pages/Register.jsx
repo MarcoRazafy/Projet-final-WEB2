@@ -4,7 +4,7 @@ import { useAuth } from "../context/Auth";
 
 function isValidEmailOptional(email) {
   const e = String(email ?? "").trim();
-  if (!e) return true; // optionnel
+  if (!e) return true; 
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 }
 
@@ -17,12 +17,12 @@ export default function Register(){
     firstName: "",
     lastName: "",
     phone: "",
-    email: "",      // optionnel
+    email: "",   
     age: "",
     sex: "Homme",
     password: "",
     confirm: "",
-    avatarDataUrl: "", // preview image
+    avatarDataUrl: "",
   });
 
   const [error, setError] = React.useState("");
@@ -61,7 +61,7 @@ export default function Register(){
         firstName: form.firstName.trim(),
         lastName:  form.lastName.trim(),
         phone:     form.phone.trim(),
-        email:     form.email.trim(), // optionnel
+        email:     form.email.trim(),
         age:       Number(form.age),
         sex:       form.sex,
         password:  form.password,

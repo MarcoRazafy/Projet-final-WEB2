@@ -8,7 +8,7 @@ export default function Login() {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const [user, setUser] = React.useState("");       // username
+  const [user, setUser] = React.useState("");      
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState("");
 

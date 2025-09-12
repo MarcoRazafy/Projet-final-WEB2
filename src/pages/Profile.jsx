@@ -45,12 +45,12 @@ export default function Profile() {
         firstName: form.firstName,
         lastName:  form.lastName,
         phone:     form.phone,
-        email:     form.email,    // optionnel
+        email:     form.email,
         age:       form.age,
         sex:       form.sex,
         avatarDataUrl: form.avatarDataUrl,
       });
-      setMsg("Profil mis à jour ✅");
+      setMsg("Profil mis à jour");
     }catch(error){
       setErr(error.message || "Erreur lors de la mise à jour du profil.");
     }
@@ -64,7 +64,7 @@ export default function Profile() {
     try{
       updatePassword(sec.currentPassword, sec.newPassword);
       setSec({ currentPassword:"", newPassword:"", confirm:"" });
-      setMsg("Mot de passe mis à jour ✅");
+      setMsg("Mot de passe mis à jour");
     }catch(error){
       setErr(error.message || "Erreur lors du changement de mot de passe.");
     }
@@ -82,7 +82,6 @@ export default function Profile() {
 
   return (
     <div className="container-soft" style={{ marginTop: 40 }}>
-      {/* Carte: Avatar + infos */}
       <div className="card">
         <h1 className="h1">Mon profil</h1>
         <p className="p-muted">Vos informations personnelles</p>
@@ -108,7 +107,6 @@ export default function Profile() {
           </div>
         </div>
 
-        {/* Formulaire édition profil */}
         <form onSubmit={onSaveProfile} className="auth-form" style={{ gap:12, marginTop:16 }}>
           <div className="grid-2">
             <div>
@@ -155,7 +153,6 @@ export default function Profile() {
         {err && <div className="error">{err}</div>}
       </div>
 
-      {/* Carte: Sécurité */}
       <div className="card mt-12">
         <h2 className="h1">Sécurité</h2>
         <p className="p-muted">Changer votre mot de passe</p>
@@ -179,7 +176,6 @@ export default function Profile() {
         </form>
       </div>
 
-      {/* Déconnexion */}
       <div className="card mt-12" style={{ textAlign: "center" }}>
         <button
           className="btn"
